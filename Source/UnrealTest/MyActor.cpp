@@ -32,6 +32,9 @@ void AMyActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	//카테고리, 로깅 수준, 형식, 인자
+	//카테고리에따라서만 로그를 찾아보고 할 수 있음, 일부 카테고리는 파일로 저장도 됨
+	UE_LOG(LogTemp, Warning, TEXT("BeginPlay %d"), 3)
 }
 
 // Called every frame
@@ -39,5 +42,7 @@ void AMyActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//UE_LOG(LogTemp, Error, TEXT("Tick %f"), DeltaTime);
+	AddActorLocalRotation(FRotator(0.f, RotateSpeed * DeltaTime, 0.f));
 }
 
